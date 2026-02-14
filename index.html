@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>College Administrative System</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    background-image:url("images/background.jpg"); /* Put your background image in same folder */
+    background-size:cover;
+    background-attachment:fixed;
+}
+
+/* ===== COLLEGE HEADER IMAGE ===== */
+.college-header{
+    width:100%;
+  color: transparen;
+  font-family: monospace;
+}
+
+.college-header img{
+    width:100%;
+    height:auto;
+}
+
+/* ===== MENU BAR ===== */
+.menu-bar{
+    background:#333;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.menu-left{
+    font-size:18px;
+}
+
+.menu-right{
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* ===== LOGIN SECTION ===== */
+.login-box{
+    margin-top:60px;
+}
+
+.profile-circle{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:red;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.profile-circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+}
+
+h2{
+    margin-top:20px;
+    font-size:28px;
+}
+
+input{
+    width:300px;
+    padding:14px;
+    margin-top:20px;
+    border-radius:30px;
+    border:none;
+    font-size:16px;
+    background:#eee;
+}
+
+button{
+    width:300px;
+    padding:14px;
+    margin-top:20px;
+    border-radius:30px;
+    border:none;
+    background:#333;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#555;
+}
+
+#error{
+    color:red;
+    margin-top:15px;
+    font-weight:bold;
+}
+  .v{
+    background-color:#FEC674;
+    font-family:Arial, sans-serif;
+  }
+  .z{
+    background-color:#936695;
+     border-radius:30px;
+     margin-left:75px;
+     margin-right:75px;
+      font-family:Arial, sans-serif;
+    
+  }
+</style>
+
+</head>
+<body>
+
+<!-- ===== COLLEGE HEADER IMAGE ===== -->
+<div class="college-header">
+    <img src="images/headname.jpg">
+    <!-- Put your college name banner image here -->
+</div>
+
+<!-- ===== MENU BAR ===== -->
+<div class="menu-bar">
+    <div class="menu-left">MENU</div>
+    <div class="menu-right">&#9776;</div>
+</div>
+
+<!-- ===== LOGIN SECTION ===== -->
+<div class="login-box">
+
+<div class="profile-circle">
+<img id="profilePic" src="images/profile.jpg">
+<!-- default profile image -->
+</div>
+
+<h2>Member Login</h2>
+
+<input type="text" id="username" placeholder="Username" onkeyup="showProfile()">
+
+<br>
+
+<button onclick="login()">Login</button>
+
+<p id="error"></p>
+
+</div>
+  <div class="v">
+  <p> ©Designed, Developed and Maintained by Department of Computer science and engineering </p>
+  </div>
+  <div class="z">
+    <h1>No of visitors : 2937041</h1>
+  </div>
+<script>
+
+// ===== 66 USERS EXAMPLE (Alphanumeric) =====
+
+const users = {
+"258t1a4201": { profile:"images/258T1A4201.jpg", page:"4201.html" },
+"258t1a4202": { profile:"images/258T1A4202.jpg", page:"4202.html" },
+"258t1a4203": { profile:"images/258T1A4203.jpg", page:"4203.html" },
+"258t1a4204": { profile:"images/258T1A4204.jpg", page:"4204.html" },
+"258t1a4205": { profile:"images/258T1A4205.jpg", page:"4205.html" },
+"258t1a4206": { profile:"images/258T1A4206.jpg", page:"4206.html" },
+"258t1a4207": { profile:"images/258T1A4207.jpg", page:"4207.html" },
+"258t1a4208": { profile:"images/258T1A4208.jpg", page:"4208.html" },
+"258t1a4209": { profile:"images/258T1A4209.jpg", page:"4209.html" },
+"258t1a4210": { profile:"images/258T1A4210.jpg", page:"4210.html" },
+"258t1a4211": { profile:"images/258T1A4211.jpg", page:"4211.html" },
+"258t1a4212": { profile:"images/258T1A4212.jpg", page:"4212.html" },
+"258t1a4213": { profile:"images/258T1A4213.jpg", page:"4213.html" },
+"258t1a4214": { profile:"images/258T1A4214.jpg", page:"4214.html" },
+"258t1a4215": { profile:"images/258T1A4215.jpg", page:"4215.html" },
+"258t1a4216": { profile:"images/258T1A4216.jpg", page:"4216.html" },
+"258t1a4217": { profile:"images/258t1A4217.jpg", page:"4217.html" },
+"258t1a4218": { profile:"images/258t1A4218.jpg", page:"4218.html" },
+"258t1a4219": { profile:"images/258T1A4219.jpg", page:"4219.html" },
+"258t1a4220": { profile:"images/258t1A4220.jpg", page:"4220.html" },
+"258t1a4221": { profile:"images/258t1A4221.jpg", page:"4221.html" },
+"258t1a4222": { profile:"images/258t1a4222.jpg", page:"4222.html" },
+"258t1a4223": { profile:"images/258t1A4223.jpg", page:"4223.html" },
+"258t1a4224": { profile:"images/258t1A4224.jpg", page:"4224.html" },
+"258t1a4225": { profile:"images/258T1A4225.jpg", page:"4225.html" },
+"258t1a4226": { profile:"images/258T1A4226.jpg", page:"4226.html" },
+"258t1a4227": { profile:"images/258T1A4227.jpg", page:"4227.html" },
+"258t1a4228": { profile:"images/258T1A4228.jpg", page:"4228.html" },
+"258t1a4229": { profile:"images/258T1A4229.jpg", page:"4229.html" },
+"258t1a4230": { profile:"images/258T1A4230.jpg", page:"4230.html" },
+"258t1a4231": { profile:"images/258T1A4231.jpg", page:"4231.html" },
+"258t1a4232": { profile:"images/258t1a4232.jpg", page:"4232.html" },
+"258t1a4233": { profile:"images/258t1a4233.jpg", page:"4233.html" },
+"258t1a4234": { profile:"images/258T1A4234.jpg", page:"4234.html" },
+"258t1a4235": { profile:"images/258T1A4235.jpg", page:"4235.html" },
+"258t1a4236": { profile:"images/258T1A4236.jpg", page:"4236.html" },
+"258t1a4237": { profile:"images/258T1A4237.jpg", page:"4237.html" },
+"258t1a4238": { profile:"images/258T1A4238.jpg", page:"4238.html" },
+"258t1a4239": { profile:"images/258T1A4239.jpg", page:"4239.html" },
+"258t1a4240": { profile:"images/258T1A4240.jpg", page:"4240.html" },
+"258t1a4241": { profile:"images/258T1A4241.jpg", page:"4241.html" },
+"258t1a4242": { profile:"images/258T1A4242.jpg", page:"4242.html" },
+"258t1a4243": { profile:"images/258T1A4243.jpg", page:"4243.html" },
+"258t1a4244": { profile:"images/258T1A4244.jpg", page:"4244.html" },
+"258t1a4245": { profile:"images/258T1A4245.jpg", page:"4245.html" },
+"258t1a4246": { profile:"images/258T1A4246.jpg", page:"4246.html" },
+"258t1a4247": { profile:"images/258T1A4247.jpg", page:"4247.html" },
+"258t1a4248": { profile:"images/258T1A4248.jpg", page:"4248.html" },
+"258t1a4249": { profile:"images/258T1A4249.jpg", page:"4249.html" },
+"258t1a4250": { profile:"images/258T1A4250.jpg", page:"4250.html" },
+"258t1a4251": { profile:"images/258T1A4251.jpg", page:"4251.html" },
+"258t1a4252": { profile:"images/258T1A4252.jpg", page:"4252.html" },
+"258t1a4253": { profile:"images/258T1A4253.jpg", page:"4253.html" },
+"258t1a4254": { profile:"images/258T1A4254.jpg", page:"4254.html" },
+"258t1a4255": { profile:"images/258T1A4255.jpg", page:"4255.html" },
+"258t1a4256": { profile:"images/258T1A4256.jpg", page:"4256.html" },
+"258t1a4261": { profile:"images/258T1A4261.jpg", page:"4261.html" },
+"258t1a4262": { profile:"images/258T1A4262.jpg", page:"4262.html" },
+"258t1a4263": { profile:"images/258T1A4263.jpg", page:"4263.html" },
+"258t1a4264": { profile:"images/258T1A4264.jpg", page:"4264.html" },
+"258t1a4266": { profile:"images/258T1A4266.jpg", page:"4266.html" },
+"258t1a4257": { profile:"images/258T1A4257.jpg", page:"4257.html" },
+"258t1a4258": { profile:"images/258T1A4258.jpg", page:"4258.html" },
+"258t1a4259": { profile:"images/258T1A4259.jpg", page:"4259.html" },
+"258t1a4260": { profile:"images/258T1A4260.jpg", page:"4260.html" },
+"258t1a4265": { profile:"images/258T1A4265.jpg", page:"4265.html" },
+
+// Continue till 66 users
+
+};
+
+
+// ===== SHOW PROFILE IMAGE =====
+function showProfile(){
+    let username = document.getElementById("username").value.trim().toLowerCase();
+    let profilePic = document.getElementById("profilePic");
+
+    if(users[username]){
+        profilePic.src = users[username].profile;
+    } else {
+        profilePic.src = "images/profile.jpg.";
+    }
+}
+
+
+// ===== LOGIN FUNCTION =====
+function login(){
+    let username = document.getElementById("username").value.trim().toLowerCase();
+
+    if(users[username]){
+        window.location.href = users[username].page;
+    } else {
+        document.getElementById("error").innerText = "Invalid Username!";
+    }
+}
+
+</script>
+
+</body>
+</html>
